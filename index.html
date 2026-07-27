@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>48 个国际音标学习</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.cx{max-width:860px;margin:0 auto;padding:20px 16px}
+.nav{display:flex;gap:8px;margin-bottom:22px;border-bottom:1px solid #1e293b;padding-bottom:10px;flex-wrap:wrap}
+.nb{padding:8px 14px;border:none;border-radius:8px;background:transparent;color:#94a3b8;font-size:14px;cursor:pointer;transition:all .2s}
+.nb.ac{color:#e2e8f0;background:#1e293b}
+.page{display:none}.page.ac{display:block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.sc{background:#1e293b;border-radius:12px;padding:16px 12px;text-align:center;border:1px solid #334155}
+.sc .num{font-size:30px;font-weight:700}.sc .lbl{font-size:11px;color:#64748b;margin-top:2px}
+.sc.g .num{color:#22c55e}.sc.y .num{color:#eab308}.sc.w .num{color:#64748b}
+.card2{background:#1e293b;border-radius:12px;padding:16px;border:1px solid #334155;margin-bottom:16px;font-size:13px;color:#94a3b8;line-height:1.7}
+.card2 b,.card2 strong{color:#c4b5fd}
+.cat{margin-bottom:20px}.cat h3{font-size:15px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.cat h3 .cb{font-size:10px;padding:1px 8px;border-radius:8px;font-weight:400;background:#312e81;color:#a5b4fc}
+.cat h3 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin-bottom:4px}
+.pc{background:#1e293b;border-radius:8px;padding:8px 4px;text-align:center;border:2px solid #334155;font-family:'Times New Roman',Georgia,serif;font-size:18px;font-weight:700;transition:all .15s}
+.pc.g{border-color:#22c55e;background:#052e16;color:#4ade80}
+.pc.y{border-color:#eab308;background:#422006;color:#facc15}
+.pc.w{color:#475569}.pc .sl{display:block;font-family:-apple-system,sans-serif;font-size:9px;font-weight:400;color:#64748b;margin-top:1px}
+.tl{margin-bottom:20px}
+.ti{display:flex;gap:12px;padding:8px 0;align-items:flex-start;border-left:2px solid #1e293b;margin-left:6px;padding-left:14px;position:relative}
+.ti.done{border-color:#22c55e}.ti.cur{border-color:#6366f1}
+.ti .td{width:8px;height:8px;border-radius:50%;background:#334155;position:absolute;left:-5px;top:12px}
+.ti.done .td{background:#22c55e}.ti.cur .td{background:#6366f1}
+.ti .day{font-size:12px;color:#94a3b8;min-width:60px;padding-top:1px}
+.ti .tc{font-size:12px}.ti .ttl{font-weight:600;color:#e2e8f0}.ti .tdt{color:#64748b;font-size:11px;margin-top:1px}
+.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.hdr h1{font-size:20px;font-weight:700}
+.bdg{background:#1e293b;padding:5px 12px;border-radius:16px;font-size:12px;color:#94a3b8}
+.pbar{background:#1e293b;border-radius:8px;height:6px;margin-bottom:16px;overflow:hidden}
+.pbf{height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6);border-radius:8px;transition:width .4s}
+.pl{display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-bottom:6px}
+.dnav{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.dnb{padding:5px 10px;border-radius:7px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:11px;cursor:pointer;transition:all .15s}
+.dnb.ac{background:#6366f1;border-color:#6366f1;color:#fff}
+.dnb.done{border-color:#22c55e;color:#22c55e}
+.tabs{display:flex;margin-bottom:16px;background:#1e293b;border-radius:10px;padding:3px}
+.tb{flex:1;padding:9px;border:none;border-radius:8px;background:transparent;color:#94a3b8;font-size:13px;cursor:pointer;transition:all .15s}
+.tb.ac{background:#334155;color:#fff}
+.cgrid{display:grid;grid-template-columns:1fr;gap:10px}
+.card{background:#1e293b;border-radius:12px;padding:16px;border:1px solid #334155;transition:all .15s}
+.card:hover{border-color:#6366f1}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.ps{font-size:32px;font-weight:700;background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Times New Roman',Georgia,serif;min-width:55px}
+.pbtn{background:#334155;border:none;color:#e2e8f0;width:32px;height:32px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.pbtn:hover{background:#6366f1}.pbtn.pla{background:#22c55e;animation:p 1s infinite}
+@keyframes p{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.ctip{font-size:12px;color:#94a3b8;line-height:1.5}
+.ccb{font-size:11px;color:#64748b;margin-top:4px}
+.cws{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.cws span{background:#0f172a;padding:3px 8px;border-radius:5px;font-size:12px;color:#a5b4fc;cursor:pointer;transition:all .1s}
+.cws span:hover{background:#312e81}
+.cmst{font-size:10px;color:#64748b;margin-top:8px;padding-top:8px;border-top:1px solid #1e293b}
+.ssec{margin-top:10px;padding-top:10px;border-top:1px solid #1e293b}
+.slbl{font-size:11px;color:#64748b;margin-bottom:6px}
+.sact{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.sbtn{padding:6px 12px;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;font-size:12px;cursor:pointer;transition:all .15s}
+.sbtn:hover{border-color:#6366f1}
+.sbtn.rec{background:#7f1d1d;border-color:#dc2626;color:#fca5a5;animation:rp .8s infinite}
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.3)}50%{box-shadow:0 0 0 6px rgba(220,38,38,0)}}
+.sbtn.prec{background:#064e3b;border-color:#22c55e;color:#4ade80}
+.sbtn:disabled{opacity:.35;cursor:not-allowed}
+.rtm{font-size:11px;color:#fca5a5;font-variant-numeric:tabular-nums}
+.sst{font-size:11px;color:#64748b;margin-top:6px}
+.qarea{display:none}.qarea.show{display:block}
+.qtl{font-size:15px;font-weight:600;margin-bottom:14px;text-align:center}
+.qq{font-size:44px;font-weight:700;text-align:center;padding:28px;border-radius:14px;margin-bottom:16px;background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Times New Roman',Georgia,serif}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qopts button{padding:12px;border-radius:10px;border:2px solid #334155;background:#1e293b;color:#e2e8f0;font-size:14px;cursor:pointer;transition:all .15s;text-align:left}
+.qopts button:hover{border-color:#6366f1;background:#1e1b4b}
+.qopts button.cr{border-color:#22c55e;background:#052e16}
+.qopts button.wr{border-color:#ef4444;background:#450a0a}
+.qfb{text-align:center;padding:14px;font-size:14px;display:none}.qfb.show{display:block}
+.qsc{display:flex;justify-content:center;gap:20px;margin-bottom:14px}
+.qsc div{text-align:center}.qsc .num{font-size:26px;font-weight:700}.qsc .lbl{font-size:10px;color:#64748b}
+.qsc .cn{color:#22c55e}.qsc .wn{color:#ef4444}
+.nbtn{width:100%;padding:12px;border-radius:10px;border:none;background:#6366f1;color:#fff;font-size:14px;cursor:pointer;font-weight:600;margin-top:14px;display:none}
+.nbtn.show{display:block}
+.rpt{background:#1e293b;border-radius:12px;padding:18px;border:1px solid #334155;font-size:13px;line-height:1.6;white-space:pre-wrap;font-family:monospace;max-height:400px;overflow-y:auto;margin-bottom:12px}
+.cpbtn{padding:8px 16px;border-radius:8px;border:none;background:#6366f1;color:#fff;font-size:13px;cursor:pointer}
+@media(max-width:500px){.qopts{grid-template-columns:1fr}.ps{font-size:26px}.card{padding:12px}.pg{grid-template-columns:repeat(auto-fill,minmax(50px,1fr))}.pc{font-size:14px;padding:6px 2px}.stats{grid-template-columns:repeat(3,1fr);gap:6px}.sc{padding:12px 8px}.sc .num{font-size:24px}}</style>
+</head>
+<body>
+<div class="cx">
+<div class="nav">
+ <button class="nb ac">总览</button>
+ <button class="nb">学习</button>
+ <button class="nb">综合练习</button>
+ <button class="nb">学习报告</button>
+</div>
+
+<div class="page ac" id="pg-overview">
+ <div class="stats">
+  <div class="sc g"><div class="num" id="o-m">0</div><div class="lbl">已掌握</div></div>
+  <div class="sc y"><div class="num" id="o-l">0</div><div class="lbl">学习中</div></div>
+  <div class="sc w"><div class="num" id="o-n">48</div><div class="lbl">待学习</div></div>
+ </div>
+ <div class="card2">一共 <strong>48 个英语国际音标</strong>：<strong>20 个元音</strong> + <strong>28 个辅音</strong>。按发音规律拆成 <strong>10 天</strong> 学完，每天 3~6 个音标，搭配已学单词做锚点。</div>
+ <div id="ov-cats"></div>
+ <h3 style="font-size:15px;font-weight:700;margin-bottom:8px;color:#c4b5fd;">学习计划（10天）</h3>
+ <div class="tl" id="ov-tl"></div>
+</div>
+
+<div class="page" id="pg-learn">
+ <div class="hdr"><h1>音标学习</h1><span class="bdg" id="l-bdg">第 1 天 / 共 10 天</span></div>
+ <div class="pl"><span>学习进度</span><span id="l-pl">第 1 天：长元音</span></div>
+ <div class="pbar"><div class="pbf" id="l-pbf" style="width:10%"></div></div>
+ <div class="dnav" id="l-dnav"></div>
+ <div class="tabs" id="l-tabs">
+  <button class="tb ac">学习音标</button>
+  <button class="tb">每日练习</button>
+ </div>
+ <div id="l-cards" class="cgrid"></div>
+ <div id="l-quiz" class="qarea">
+  <div class="qsc">
+   <div><div class="num cn" id="lqc">0</div><div class="lbl">正确</div></div>
+   <div><div class="num" style="color:#94a3b8" id="lqt">0</div><div class="lbl">已答</div></div>
+   <div><div class="num wn" id="lqw">0</div><div class="lbl">错误</div></div>
+  </div>
+  <div class="qq" id="lqq">/ɑː/</div>
+  <div class="qtl" id="lqi"></div>
+  <div class="qopts" id="lqo"></div>
+  <div class="qfb" id="lqf"></div>
+  <button class="nbtn" id="lqn">下一题</button>
+ </div>
+</div>
+
+<div class="page" id="pg-practice">
+ <div style="margin-bottom:14px"><h1 style="font-size:20px;">综合练习</h1><p style="font-size:12px;color:#64748b;margin-top:2px">随机从 48 个音标和锚点词中出题</p></div>
+ <div class="qarea show">
+  <div class="qsc">
+   <div><div class="num cn" id="pqc">0</div><div class="lbl">正确</div></div>
+   <div><div class="num" style="color:#94a3b8" id="pqt">0</div><div class="lbl">已答</div></div>
+   <div><div class="num wn" id="pqw">0</div><div class="lbl">错误</div></div>
+  </div>
+  <div class="qq" id="pqq">/ɑː/</div>
+  <div class="qtl" id="pqi"></div>
+  <div class="qopts" id="pqo"></div>
+  <div class="qfb" id="pqf"></div>
+  <button class="nbtn" id="pqn">下一题</button>
+ </div>
+</div>
+
+<div class="page" id="pg-report">
+ <h2 style="font-size:18px;margin-bottom:14px;">学习报告</h2>
+ <div id="rpt-content" class="rpt">暂无学习记录</div>
+ <button class="cpbtn" onclick="copyReport()">复制报告</button>
+ <span id="rpt-msg" style="font-size:12px;color:#22c55e;margin-left:10px;display:none">已复制！</span>
+</div>
+
+</div>
+<script>
+var P=[{"s": "/ɑː/", "t": "嘴巴张大，舌头放平，发长音 '啊'", "c": "a, ar", "w": ["car", "class", "farm"], "sub": "长元音", "cat": "元音（20 个）"}, {"s": "/ɔː/", "t": "嘴巴收圆，舌头后缩，发长音 '奥'", "c": "o, or, al", "w": ["door", "horse", "ball"], "sub": "长元音", "cat": "元音（20 个）"}, {"s": "/ɜː/", "t": "嘴巴扁平，舌头中部抬起，发长音 '呃'", "c": "er, ir, ur", "w": ["bird", "girl", "nurse"], "sub": "长元音", "cat": "元音（20 个）"}, {"s": "/iː/", "t": "嘴巴咧开，舌尖抵下齿，发长音 '衣'", "c": "e, ee, ea", "w": ["bee", "tree", "read"], "sub": "长元音", "cat": "元音（20 个）"}, {"s": "/uː/", "t": "嘴巴收小圆，舌头后缩，发长音 '乌'", "c": "o, oo, u", "w": ["zoo", "noodle", "school"], "sub": "长元音", "cat": "元音（20 个）"}, {"s": "/ʌ/", "t": "嘴巴微张，短促有力，发短音 '啊'", "c": "u, o, ou", "w": ["bus", "duck", "run"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/ɒ/", "t": "嘴巴张大收圆，短促发 '奥'", "c": "o, a", "w": ["dog", "hot", "orange"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/ə/", "t": "嘴巴自然放松，轻读 '呃'（最弱音）", "c": "er, a, o", "w": ["teacher", "banana", "computer"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/ɪ/", "t": "嘴巴微咧，短促发 '衣'", "c": "i, y", "w": ["big", "pig", "fish"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/ʊ/", "t": "嘴巴收小圆，短促发 '乌'", "c": "oo, u, oul", "w": ["book", "look", "cook"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/e/", "t": "嘴巴扁开，舌尖抵下齿，发短 '哎'", "c": "e, ea", "w": ["pen", "bed", "red"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/æ/", "t": "嘴巴张大扁开，舌尖抵下齿，口型比 /e/ 大", "c": "a", "w": ["cat", "apple", "black"], "sub": "短元音", "cat": "元音（20 个）"}, {"s": "/eɪ/", "t": "从 '哎' 滑到 '衣'，类似字母 A 的发音", "c": "a, ay, ai", "w": ["cake", "day", "say"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/aɪ/", "t": "从 '啊' 滑到 '衣'，类似字母 I 的发音", "c": "i, y, igh", "w": ["bike", "five", "eye"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/ɔɪ/", "t": "从 '奥' 滑到 '衣'", "c": "oy, oi", "w": ["boy"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/əʊ/", "t": "从 '呃' 滑到 '乌'，类似字母 O 的发音", "c": "o, ow, oa", "w": ["nose", "boat", "window"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/aʊ/", "t": "从 '啊' 滑到 '乌'，类似 '奥屋'", "c": "ow, ou", "w": ["cow", "house", "flower"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/ɪə/", "t": "从 '衣' 滑到 '呃'", "c": "ear, eer, ea", "w": ["ear"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/eə/", "t": "从 '哎' 滑到 '呃'", "c": "air, ear, are", "w": ["bear", "pear", "chair"], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/ʊə/", "t": "从 '乌' 滑到 '呃'", "c": "ure, our", "w": [], "sub": "双元音", "cat": "元音（20 个）"}, {"s": "/p/", "t": "双唇紧闭，送气冲开，声带不振动", "c": "p", "w": ["pen", "pig", "apple"], "sub": "爆破音・清辅音", "cat": "辅音（28 个）"}, {"s": "/b/", "t": "口型同 /p/，声带振动", "c": "b", "w": ["book", "bed", "boy"], "sub": "爆破音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/t/", "t": "舌尖抵上齿龈，送气冲开，声带不振动", "c": "t", "w": ["ten", "cat", "student"], "sub": "爆破音・清辅音", "cat": "辅音（28 个）"}, {"s": "/d/", "t": "口型同 /t/，声带振动", "c": "d", "w": ["dog", "bed", "hand"], "sub": "爆破音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/k/", "t": "舌根抵软腭，送气冲开，声带不振动", "c": "k, c, ck", "w": ["car", "black", "desk"], "sub": "爆破音・清辅音", "cat": "辅音（28 个）"}, {"s": "/g/", "t": "口型同 /k/，声带振动", "c": "g", "w": ["girl", "dog", "egg"], "sub": "爆破音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/f/", "t": "上齿轻咬下唇，送气摩擦，声带不振动", "c": "f, ph", "w": ["fish", "foot", "five"], "sub": "摩擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/v/", "t": "口型同 /f/，声带振动", "c": "v", "w": ["five", "very"], "sub": "摩擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/θ/", "t": "舌尖轻抵上下齿之间，送气摩擦（咬舌音）", "c": "th", "w": ["three", "thank", "math"], "sub": "摩擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/ð/", "t": "口型同 /θ/，声带振动（咬舌音）", "c": "th", "w": ["this", "that", "mother"], "sub": "摩擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/s/", "t": "舌尖抵下齿，气流从齿间摩擦，声带不振动", "c": "s, c", "w": ["six", "bus", "face"], "sub": "摩擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/z/", "t": "口型同 /s/，声带振动", "c": "z, s", "w": ["zoo", "is", "nose"], "sub": "摩擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/ʃ/", "t": "嘴巴收圆翘舌，送气摩擦，声带不振动", "c": "sh, s", "w": ["sheep", "fish", "short"], "sub": "摩擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/ʒ/", "t": "口型同 /ʃ/，声带振动", "c": "s, ge", "w": [], "sub": "摩擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/h/", "t": "气流从喉咙轻轻送出，发音很弱", "c": "h", "w": ["he", "hand", "happy"], "sub": "摩擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/r/", "t": "舌尖上翘，声带振动，卷舌发音", "c": "r, wr", "w": ["red", "run", "rice"], "sub": "摩擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/tʃ/", "t": "翘舌轻读，先爆破后摩擦", "c": "ch, tch", "w": ["chicken", "teacher", "chair"], "sub": "破擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/dʒ/", "t": "翘舌声带振动，先爆破后摩擦", "c": "j, ge", "w": ["orange"], "sub": "破擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/tr/", "t": "卷舌轻读，先爆破后摩擦", "c": "tr", "w": ["tree", "train", "truck"], "sub": "破擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/dr/", "t": "卷舌声带振动，先爆破后摩擦", "c": "dr", "w": ["drink", "driver", "draw"], "sub": "破擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/ts/", "t": "舌尖抵齿龈，送气发音，声带不振动", "c": "ts, tes", "w": ["students", "cats"], "sub": "破擦音・清辅音", "cat": "辅音（28 个）"}, {"s": "/dz/", "t": "口型同 /ts/，声带振动", "c": "ds, des", "w": ["beds", "friends"], "sub": "破擦音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/m/", "t": "双唇紧闭，气流从鼻腔送出", "c": "m", "w": ["milk", "mother", "family"], "sub": "鼻音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/n/", "t": "舌尖抵上齿龈，气流从鼻腔送出", "c": "n", "w": ["nose", "pen", "nine"], "sub": "鼻音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/ŋ/", "t": "舌根抵软腭，后鼻音，气流从鼻腔送出", "c": "ng, n", "w": ["sing", "long", "morning"], "sub": "鼻音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/l/", "t": "舌尖抵上齿龈，气流从舌头两侧送出", "c": "l", "w": ["leg", "school", "apple"], "sub": "舌侧音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/w/", "t": "嘴巴收圆突出，快速滑向元音", "c": "w, wh", "w": ["window", "what", "warm"], "sub": "半元音・浊辅音", "cat": "辅音（28 个）"}, {"s": "/j/", "t": "嘴巴咧开，舌尖抵下齿，快速滑向元音", "c": "y, i", "w": ["yes", "yellow", "you"], "sub": "半元音・浊辅音", "cat": "辅音（28 个）"}];
+var PLAN=[{"d": 1, "title": "长元音", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "/iː/", "/uː/"]}, {"d": 2, "title": "短元音（上）", "sym": ["/ʌ/", "/ɒ/", "/ə/", "/ɪ/"]}, {"d": 3, "title": "短元音（下）", "sym": ["/ʊ/", "/e/", "/æ/"]}, {"d": 4, "title": "双元音（上）", "sym": ["/eɪ/", "/aɪ/", "/ɔɪ/", "/əʊ/"]}, {"d": 5, "title": "双元音（下）", "sym": ["/aʊ/", "/ɪə/", "/eə/", "/ʊə/"]}, {"d": 6, "title": "爆破音", "sym": ["/p/", "/b/", "/t/", "/d/", "/k/", "/g/"]}, {"d": 7, "title": "摩擦音（上）", "sym": ["/f/", "/v/", "/θ/", "/ð/", "/s/", "/z/"]}, {"d": 8, "title": "摩擦音（下）", "sym": ["/ʃ/", "/ʒ/", "/h/", "/r/"]}, {"d": 9, "title": "破擦音", "sym": ["/tʃ/", "/dʒ/", "/tr/", "/dr/", "/ts/", "/dz/"]}, {"d": 10, "title": "鼻音/舌侧/半元音", "sym": ["/m/", "/n/", "/ŋ/", "/l/", "/w/", "/j/"]}];
+var CATS=[{"name": "长元音", "badge": "Vowel", "color": "#ef4444", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "/iː/", "/uː/"]}, {"name": "短元音", "badge": "Vowel", "color": "#f97316", "sym": ["/ʌ/", "/ɒ/", "/ə/", "/ɪ/", "/ʊ/", "/e/", "/æ/"]}, {"name": "双元音", "badge": "Vowel", "color": "#eab308", "sym": ["/eɪ/", "/aɪ/", "/ɔɪ/", "/əʊ/", "/aʊ/", "/ɪə/", "/eə/", "/ʊə/"]}, {"name": "爆破音", "badge": "Consonant", "color": "#3b82f6", "sym": ["/p/", "/b/", "/t/", "/d/", "/k/", "/g/"]}, {"name": "摩擦音", "badge": "Consonant", "color": "#8b5cf6", "sym": ["/f/", "/v/", "/θ/", "/ð/", "/s/", "/z/", "/ʃ/", "/ʒ/", "/h/", "/r/"]}, {"name": "破擦音", "badge": "Consonant", "color": "#ec4899", "sym": ["/tʃ/", "/dʒ/", "/tr/", "/dr/", "/ts/", "/dz/"]}, {"name": "鼻音/舌侧/半元音", "badge": "Consonant", "color": "#22c55e", "sym": ["/m/", "/n/", "/ŋ/", "/l/", "/w/", "/j/"]}];
+var PM={};
+P.forEach(function(p){ PM[p.s]=p; });
+
+function tts(w){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; window.speechSynthesis.speak(u); }
+
+function ttsM(btn,ws){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); btn.classList.add('pla'); ws.forEach(function(w,i){ var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; if(i===ws.length-1)u.onend=function(){btn.classList.remove('pla');}; window.speechSynthesis.speak(u); }); }
+
+var REC={};
+var RST={};
+
+function startRec(id,word){
+ var se=document.getElementById('ss-'+id);
+ var te=document.getElementById('rt-'+id);
+ var rb=document.querySelector('#sact-'+id+' .sbtn');
+ var pb=document.getElementById('pb-'+id);
+ se.innerHTML='<span style="color:#eab308">播放标准发音...</span>';
+ pb.disabled=true; window.speechSynthesis.cancel();
+ var u=new SpeechSynthesisUtterance(word);u.lang='en-US';u.rate=0.8;
+ u.onend=function(){
+  se.innerHTML='<span style="color:#fca5a5">请大声跟读！</span>';
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+   var cks=[]; var rc=new MediaRecorder(st);
+   rc.ondataavailable=function(e){cks.push(e.data);};
+   rc.onstop=function(){
+    var bl=new Blob(cks,{type:'audio/webm'}); REC[id]=bl;
+    pb.disabled=false;pb.classList.add('prec');
+    if(rb){rb.classList.remove('rec');rb.textContent='再试一次';}
+    if(te)te.style.display='none';
+    if(RST[id])clearInterval(RST[id].t);
+    se.innerHTML='<span style="color:#4ade80">完成！点播放对比听听</span>';
+    st.getTracks().forEach(function(t){t.stop();}); delete RST[id];
+   };
+   rc.start(); RST[id]={recorder:rc,stream:st};
+   if(rb)rb.classList.add('rec'); if(te)te.style.display='';
+   var s=0; var t=setInterval(function(){s++;if(te)te.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');RST[id].t=t;if(s>=10)RST[id].recorder.stop();},1000);
+  }).catch(function(){ se.innerHTML='<span style="color:#ef4444">录音失败，请允许麦克风权限</span>'; });
+ };
+ window.speechSynthesis.speak(u);
+}
+
+function playRec(id){ var b=REC[id]; if(!b)return; var u=URL.createObjectURL(b); var a=new Audio(u);a.play();a.onended=function(){URL.revokeObjectURL(u);}; }
+
+// Nav
+document.querySelectorAll('.nav .nb').forEach(function(b,i){
+ var pages=['overview','learn','practice','report'];
+ b.addEventListener('click',function(){ navTo(pages[i]); });
+});
+
+function navTo(pg){
+ var allNavs=document.querySelectorAll('.nav .nb');
+ allNavs.forEach(function(b){b.classList.remove('ac');});
+ var idx={'overview':0,'learn':1,'practice':2,'report':3};
+ allNavs[idx[pg]].classList.add('ac');
+ document.querySelectorAll('.page').forEach(function(p){p.classList.remove('ac');});
+ document.getElementById('pg-'+pg).classList.add('ac');
+ if(pg==='report')genReport();
+}
+
+function loadProg(){ try{ return JSON.parse(localStorage.getItem('phonetic_progress')||'{}'); }catch(e){ return {}; } }
+function saveProg(pr){ localStorage.setItem('phonetic_progress',JSON.stringify(pr)); }
+var progress=loadProg();
+
+function getLvl(sym){
+ var p=progress[sym];
+ if(!p||!p.correct)return 'none';
+ var r=p.correct/(p.total||1);
+ if(r>=0.8 && p.correct>=3)return 'mastered';
+ if(p.correct>0)return 'learning';
+ return 'none';
+}
+
+function getDayStatus(dayIdx){
+ var day=PLAN[dayIdx];
+ var allSyms=day.sym;
+ var levels=allSyms.map(function(s){return getLvl(s);});
+ var mastered=levels.filter(function(l){return l==='mastered';}).length;
+ if(mastered===allSyms.length)return 'done';
+ if(levels.some(function(l){return l!=='none';}))return 'started';
+ return 'none';
+}
+
+function getOverall(){
+ var m=0,l=0,n=0;
+ P.forEach(function(p){ var lv=getLvl(p.s); if(lv==='mastered')m++; else if(lv==='learning')l++; else n++; });
+ return {mastered:m,learning:l,none:n};
+}
+
+function renderOv(){
+ var o=getOverall();
+ document.getElementById('o-m').textContent=o.mastered;
+ document.getElementById('o-l').textContent=o.learning;
+ document.getElementById('o-n').textContent=o.none;
+ var h='';
+ CATS.forEach(function(cat){
+  var cls={none:'w',learning:'y',mastered:'g'};
+  var lbl={none:'-',learning:'学习中',mastered:'v'};
+  h+='<div class="cat"><h3><span class="dot" style="background:'+cat.color+'"></span>'+cat.name+' <span class="cb">'+cat.badge+'</span></h3><div class="pg">';
+  cat.sym.forEach(function(s){ var l=getLvl(s); h+='<div class="pc '+cls[l]+'">'+s+'<span class="sl">'+lbl[l]+'</span></div>'; });
+  h+='</div></div>';
+ });
+ document.getElementById('ov-cats').innerHTML=h;
+ var tl='';
+ PLAN.forEach(function(d,i){
+  var st=getDayStatus(i);
+  var sc=st==='done'?'done':st==='started'?'cur':'';
+  tl+='<div class="ti '+sc+'"><div class="td"></div><div class="day">第 '+d.d+' 天</div><div class="tc"><div class="ttl">'+d.title+'（'+d.sym.length+'个）</div><div class="tdt">'+d.sym.join(' ')+'</div></div></div>';
+ });
+ document.getElementById('ov-tl').innerHTML=tl;
+}
+
+// Learn
+var curDay=0;
+
+function getAnchorWords(sym){
+ var p=PM[sym];
+ if(!p||!p.w||p.w.length===0)return [];
+ return p.w;
+}
+
+function renderDayNav(){
+ var dnav=document.getElementById('l-dnav');
+ dnav.innerHTML=PLAN.map(function(d,i){
+  var st=getDayStatus(i);
+  return '<button class="dnb'+(i===curDay?' ac':'')+(st==='done'?' done':'')+'">Day'+d.d+' '+d.title+'</button>';
+ }).join('');
+ dnav.querySelectorAll('.dnb').forEach(function(btn,i){
+  btn.addEventListener('click',function(){ curDay=i; refreshLearn(); });
+ });
+}
+
+function renderCards(){
+ var day=PLAN[curDay];
+ var h='';
+ day.sym.forEach(function(s){
+  var p=PM[s]; if(!p)return;
+  var ws=getAnchorWords(s);
+  var ttsW=ws.length>0?ws[0]:'hello';
+  var id=s.replace(/[^a-zA-Z0-9]/g,'_');
+  var lv=getLvl(s);
+  var lvLabel={none:'待学习',learning:'学习中',mastered:'已掌握'}[lv];
+  h+='<div class="card">';
+  h+='<div class="ch"><span class="ps">'+s+'</span>';
+  h+='<button class="pbtn tts-btn" data-words="'+ws.join(',')+'">speaker</button>';
+  h+='<span style="font-size:11px;color:#64748b;margin-left:auto;">'+p.sub+'</span></div>';
+  h+='<div class="ctip">'+p.t+'</div>';
+  h+='<div class="ccb">常见字母组合：<strong>'+p.c+'</strong></div>';
+  if(ws.length>0){
+   h+='<div class="cws">'+ws.map(function(w){return'<span class="word-anchor" data-word="'+w+'">'+w+'</span>';}).join('')+'</div>';
+  }
+  h+='<div class="ssec"><div class="slbl">跟读练习 - 先听再读</div>';
+  h+='<div class="sact" id="sact-'+id+'">';
+  h+='<button class="sbtn rec-btn" data-id="'+id+'" data-word="'+ttsW+'">开始跟读</button>';
+  h+='<button class="sbtn" id="pb-'+id+'" disabled data-id="'+id+'" data-action="play-rec">听我的发音</button>';
+  h+='<span class="rtm" id="rt-'+id+'" style="display:none">00:00</span>';
+  h+='</div><div class="sst" id="ss-'+id+'"></div></div>';
+  h+='<div class="cmst">掌握度：'+lvLabel+'</div>';
+  h+='</div>';
+ });
+ document.getElementById('l-cards').innerHTML=h;
+ // Attach event listeners after rendering
+ document.querySelectorAll('.tts-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+   var wds=this.getAttribute('data-words').split(',');
+   ttsM(this, wds);
+  });
+ });
+ document.querySelectorAll('.word-anchor').forEach(function(sp){
+  sp.addEventListener('click',function(){
+   tts(this.getAttribute('data-word'));
+  });
+ });
+ document.querySelectorAll('.rec-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+   var id=this.getAttribute('data-id');
+   var wd=this.getAttribute('data-word');
+   startRec(id, wd);
+  });
+ });
+}
+
+function refreshLearn(){
+ var day=PLAN[curDay];
+ document.getElementById('l-bdg').textContent='第 '+(curDay+1)+' 天 / 共 10 天';
+ document.getElementById('l-pl').textContent='第 '+(curDay+1)+' 天：'+day.title;
+ document.getElementById('l-pbf').style.width=((curDay+1)*10)+'%';
+ document.querySelectorAll('#l-dnav .dnb').forEach(function(b,i){b.classList.toggle('ac',i===curDay);});
+ renderCards();
+ document.getElementById('l-quiz').classList.remove('show');
+ document.getElementById('l-cards').style.display='';
+ document.querySelectorAll('#l-tabs .tb').forEach(function(b,i){b.classList.toggle('ac',i===0);});
+}
+
+renderDayNav();
+renderCards();
+
+// Learn tabs
+document.querySelectorAll('#l-tabs .tb').forEach(function(btn,i){
+ btn.addEventListener('click',function(){
+  document.querySelectorAll('#l-tabs .tb').forEach(function(b){b.classList.remove('ac');});
+  this.classList.add('ac');
+  if(i===0){ document.getElementById('l-cards').style.display='';document.getElementById('l-quiz').classList.remove('show'); }
+  else{ document.getElementById('l-cards').style.display='none';document.getElementById('l-quiz').classList.add('show'); startDailyQuiz(); }
+ });
+});
+
+var dqIdx=0,dqCorrect=0,dqWrong=0,dqAnswered=false,dqData=[];
+
+function genDailyQuiz(){
+ var d=PLAN[curDay];
+ var qs=[];
+ d.sym.forEach(function(s){
+  var p=PM[s]; if(!p)return;
+  var ws=getAnchorWords(s);
+  if(ws.length===0)return;
+  var correctWord=ws[Math.floor(Math.random()*ws.length)];
+  var wrongWords=[];
+  var otherSyms=P.filter(function(pp){return pp.s!==s;});
+  for(var k=0;k<otherSyms.length && wrongWords.length<3;k++){
+   var ow=getAnchorWords(otherSyms[k].s);
+   if(ow.length>0 && wrongWords.indexOf(ow[0])===-1) wrongWords.push(ow[0]);
+  }
+  while(wrongWords.length<3)wrongWords.push('word'+wrongWords.length);
+  var opts1=[correctWord].concat(wrongWords.slice(0,3)).sort(function(){return Math.random()-0.5;});
+  qs.push({q:s,ans:correctWord,opts:opts1,inst:'这个音标对应哪个单词？',type:'s2w'});
+  var wrongSyms=[];
+  for(k=0;k<otherSyms.length&&wrongSyms.length<3;k++)wrongSyms.push(otherSyms[k].s);
+  var opts2=[s].concat(wrongSyms.slice(0,3)).sort(function(){return Math.random()-0.5;});
+  qs.push({q:correctWord,ans:s,opts:opts2,inst:'这个单词的音标是？',type:'w2s'});
+ });
+ return qs.sort(function(){return Math.random()-0.5;});
+}
+
+function startDailyQuiz(){ dqIdx=0;dqCorrect=0;dqWrong=0;dqData=genDailyQuiz(); updateDQScore(); dqLoad(); }
+
+function updateDQScore(){ document.getElementById('lqc').textContent=dqCorrect;document.getElementById('lqt').textContent=dqCorrect+dqWrong;document.getElementById('lqw').textContent=dqWrong; }
+
+function dqLoad(){
+ if(dqIdx>=dqData.length){
+  document.getElementById('lqq').textContent='done';document.getElementById('lqi').textContent='练习完成！正确 '+dqCorrect+'/'+dqData.length+' ('+Math.round(dqCorrect/Math.max(dqData.length,1)*100)+'%)';
+  document.getElementById('lqo').innerHTML='';document.getElementById('lqf').classList.remove('show');document.getElementById('lqn').classList.remove('show');
+  return;
+ }
+ dqAnswered=false;
+ var q=dqData[dqIdx];
+ document.getElementById('lqq').textContent=q.q;document.getElementById('lqi').textContent=q.inst;
+ document.getElementById('lqf').classList.remove('show');document.getElementById('lqn').classList.remove('show');
+ document.getElementById('lqo').innerHTML=q.opts.map(function(o){return'<button>'+o+'</button>';}).join('');
+ document.querySelectorAll('#lqo button').forEach(function(b,i){b.addEventListener('click',function(){dqAnswer(this,this.textContent);});});
+}
+
+function dqAnswer(btn,chosen){
+ if(dqAnswered)return; dqAnswered=true;
+ var q=dqData[dqIdx];
+ var ok=chosen===q.ans;
+ var sym=q.type==='s2w'?q.q:q.ans;
+ if(ok){dqCorrect++;btn.classList.add('cr');}
+ else{dqWrong++;btn.classList.add('wr');document.querySelectorAll('#lqo button').forEach(function(b){if(b.textContent===q.ans)b.classList.add('cr');});}
+ var fb=document.getElementById('lqf');fb.classList.add('show');
+ fb.innerHTML=ok?'<span style="color:#22c55e">正确！</span>':'<span style="color:#ef4444">正确答案是 <strong>'+q.ans+'</strong></span>';
+ document.getElementById('lqn').classList.add('show');
+ updateDQScore();
+ var pr=loadProg();
+ if(!pr[sym])pr[sym]={correct:0,total:0,streak:0};
+ pr[sym].total=(pr[sym].total||0)+1;
+ if(ok){pr[sym].correct=(pr[sym].correct||0)+1;pr[sym].streak=(pr[sym].streak||0)+1;}
+ else{pr[sym].streak=0;}
+ saveProg(pr);
+}
+document.getElementById('lqn').addEventListener('click',function(){dqIdx++;dqLoad();});
+
+var pqIdx=0,pqCorrect=0,pqWrong=0,pqAnswered=false,pqData=[];
+
+function genPQ(){
+ var qs=[];
+ P.forEach(function(p){
+  var ws=p.w;
+  if(ws.length===0)return;
+  var cw=ws[Math.floor(Math.random()*ws.length)];
+  var ww=[]; var ops=P.filter(function(pp){return pp.s!==p.s && pp.w.length>0;});
+  for(var k=0;k<ops.length&&ww.length<3;k++){ var ow=ops[k].w; if(ow.length>0 && ww.indexOf(ow[0])===-1)ww.push(ow[0]); }
+  while(ww.length<3)ww.push('x'+ww.length);
+  var o1=[cw].concat(ww.slice(0,3)).sort(function(){return Math.random()-0.5;});
+  qs.push({q:p.s,ans:cw,opts:o1,inst:'这个音标对应哪个单词？',s:p.s});
+  var wsyms=[];
+  for(k=0;k<ops.length&&wsyms.length<3;k++)wsyms.push(ops[k].s);
+  var o2=[p.s].concat(wsyms.slice(0,3)).sort(function(){return Math.random()-0.5;});
+  qs.push({q:cw,ans:p.s,opts:o2,inst:'这个单词的音标是？',s:p.s});
+ });
+ return qs.sort(function(){return Math.random()-0.5;});
+}
+
+function startPQ(){ pqIdx=0;pqCorrect=0;pqWrong=0;pqData=genPQ(); updatePQScore(); pqLoad(); }
+
+function updatePQScore(){ document.getElementById('pqc').textContent=pqCorrect;document.getElementById('pqt').textContent=pqCorrect+pqWrong;document.getElementById('pqw').textContent=pqWrong; }
+
+function pqLoad(){
+ if(pqIdx>=pqData.length){
+  document.getElementById('pqq').textContent='done';document.getElementById('pqi').textContent='练习完成！正确 '+pqCorrect+'/'+pqData.length+' ('+Math.round(pqCorrect/Math.max(pqData.length,1)*100)+'%)';
+  document.getElementById('pqo').innerHTML='';document.getElementById('pqf').classList.remove('show');document.getElementById('pqn').classList.remove('show');
+  return;
+ }
+ pqAnswered=false;
+ var q=pqData[pqIdx];
+ document.getElementById('pqq').textContent=q.q;document.getElementById('pqi').textContent=q.inst;
+ document.getElementById('pqf').classList.remove('show');document.getElementById('pqn').classList.remove('show');
+ document.getElementById('pqo').innerHTML=q.opts.map(function(o){return'<button>'+o+'</button>';}).join('');
+ document.querySelectorAll('#pqo button').forEach(function(b,i){b.addEventListener('click',function(){pqAnswer(this,this.textContent);});});
+}
+
+function pqAnswer(btn,chosen){
+ if(pqAnswered)return;pqAnswered=true;
+ var q=pqData[pqIdx];
+ var ok=chosen===q.ans;
+ var sym=q.s;
+ if(ok){pqCorrect++;btn.classList.add('cr');}
+ else{pqWrong++;btn.classList.add('wr');document.querySelectorAll('#pqo button').forEach(function(b){if(b.textContent===q.ans)b.classList.add('cr');});}
+ var fb=document.getElementById('pqf');fb.classList.add('show');
+ fb.innerHTML=ok?'<span style="color:#22c55e">正确！</span>':'<span style="color:#ef4444">正确答案是 <strong>'+q.ans+'</strong></span>';
+ document.getElementById('pqn').classList.add('show');
+ updatePQScore();
+ var pr=loadProg();
+ if(!pr[sym])pr[sym]={correct:0,total:0,streak:0};
+ pr[sym].total=(pr[sym].total||0)+1;
+ if(ok){pr[sym].correct=(pr[sym].correct||0)+1;pr[sym].streak=(pr[sym].streak||0)+1;}
+ else{pr[sym].streak=0;}
+ saveProg(pr);
+}
+document.getElementById('pqn').addEventListener('click',function(){pqIdx++;pqLoad();});
+
+function genReport(){
+ var pr=loadProg();
+ var o=getOverall();
+ var totalQ=0,totalC=0;
+ Object.values(pr).forEach(function(p){totalQ+=p.total||0;totalC+=p.correct||0;});
+ var accuracy=totalQ>0?Math.round(totalC/totalQ*100):0;
+ var r='48个国际音标学习报告\n';
+ r+='===========================\n\n';
+ r+='总览\n';
+ r+='  已掌握：'+o.mastered+'/'+48+' ('+Math.round(o.mastered/48*100)+'%)\n';
+ r+='  学习中：'+o.learning+'/'+48+'\n';
+ r+='  待学习：'+o.none+'/'+48+'\n';
+ r+='  总答题：'+totalQ+' | 正确率：'+accuracy+'%\n\n';
+ r+='每日进度\n';
+ PLAN.forEach(function(d,i){
+  var syms=d.sym;
+  var mc=syms.filter(function(s){return getLvl(s)==='mastered';}).length;
+  var ic=getDayStatus(i)==='done'?'[OK]':'[  ]';
+  r+=ic+' 第'+d.d+'天 '+d.title+': '+mc+'/'+syms.length+' 掌握\n';
+ });
+ r+='\n各音标详情\n';
+ P.forEach(function(p){
+  var lv=getLvl(p.s);
+  var pd=pr[p.s]||{};
+  var icon=lv==='mastered'?'[OK]':lv==='learning'?'[..]':'[  ]';
+  r+=icon+' '+p.s;
+  if(pd.total)r+=' | 答题'+pd.total+' 正确率'+(pd.total>0?Math.round((pd.correct||0)/pd.total*100):0)+'%';
+  r+='\n';
+ });
+ r+='\n===========================\n';
+ r+='生成时间：'+new Date().toLocaleDateString('zh-CN');
+ document.getElementById('rpt-content').textContent=r;
+}
+
+function copyReport(){
+ genReport();
+ var r=document.getElementById('rpt-content').textContent;
+ navigator.clipboard.writeText(r).then(function(){
+  document.getElementById('rpt-msg').style.display='inline';
+  setTimeout(function(){document.getElementById('rpt-msg').style.display='none';},2000);
+ }).catch(function(){ alert('复制失败，请手动复制'); });
+}
+
+renderOv();
+startPQ();
+
+</script>
+</body>
+</html>
