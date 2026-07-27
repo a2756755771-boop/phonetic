@@ -168,8 +168,31 @@ var PS={"/ɑː/":"aaaah","/ɔː/":"awwww","/ɜː/":"urrrr","/iː/":"eeeee","/uː
 function tts(w, slow){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US'; u.rate=slow?0.35:0.85; window.speechSynthesis.speak(u); }
 
 function speakPhonetic(text){
-  // Use slow TTS for phonetic playback - 0.35x speed makes vowel sounds very clear
-  tts(text, true);
+  // Use direct Wikipedia audio for accurate pronunciation
+  // Map each symbol to its Wikipedia Commons audio URL
+  var audioMap={
+    "/ɑː/":"https://upload.wikimedia.org/wikipedia/commons/0/0e/PR-open_front_unrounded_vowel.ogg",
+    "/iː/":"https://upload.wikimedia.org/wikipedia/commons/9/95/Close_front_unrounded_vowel.ogg",
+    "/uː/":"https://upload.wikimedia.org/wikipedia/commons/5/5d/Close_back_rounded_vowel.ogg",
+    "/ɔː/":"https://upload.wikimedia.org/wikipedia/commons/0/02/PR-open-mid_back_rounded_vowel.ogg",
+    "/e/":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Close-mid_front_unrounded_vowel.ogg",
+    "/æ/":"https://upload.wikimedia.org/wikipedia/commons/c/c9/Near-open_front_unrounded_vowel.ogg",
+    "/ɪ/":"https://upload.wikimedia.org/wikipedia/commons/4/4c/Near-close_near-front_unrounded_vowel.ogg",
+    "/ʊ/":"https://upload.wikimedia.org/wikipedia/commons/d/d5/Near-close_near-back_rounded_vowel.ogg",
+    "/ʌ/":"https://upload.wikimedia.org/wikipedia/commons/9/92/Open-mid_back_unrounded_vowel.ogg",
+    "/ɒ/":"https://upload.wikimedia.org/wikipedia/commons/0/02/PR-open-mid_back_rounded_vowel.ogg",
+    "/ə/":"https://upload.wikimedia.org/wikipedia/commons/d/d9/Mid-central_vowel.ogg",
+    "/ɜː/":"https://upload.wikimedia.org/wikipedia/commons/0/09/Open-mid_central_unrounded_vowel.ogg"
+  };
+  var url=audioMap[text];
+  if(url){
+    window.speechSynthesis.cancel();
+    var a=new Audio(url);
+    a.play();
+  } else {
+    // Fallback to slow TTS
+    tts(text, true);
+  }
 }
 
 function ttsM(btn,ws){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); btn.classList.add('pla'); ws.forEach(function(w,i){ var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; if(i===ws.length-1)u.onend=function(){btn.classList.remove('pla');}; window.speechSynthesis.speak(u); }); }
