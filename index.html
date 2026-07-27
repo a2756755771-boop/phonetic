@@ -163,73 +163,13 @@ var PLAN=[{"d": 1, "title": "长元音", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "
 var CATS=[{"name": "长元音", "badge": "Vowel", "color": "#ef4444", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "/iː/", "/uː/"]}, {"name": "短元音", "badge": "Vowel", "color": "#f97316", "sym": ["/ʌ/", "/ɒ/", "/ə/", "/ɪ/", "/ʊ/", "/e/", "/æ/"]}, {"name": "双元音", "badge": "Vowel", "color": "#eab308", "sym": ["/eɪ/", "/aɪ/", "/ɔɪ/", "/əʊ/", "/aʊ/", "/ɪə/", "/eə/", "/ʊə/"]}, {"name": "爆破音", "badge": "Consonant", "color": "#3b82f6", "sym": ["/p/", "/b/", "/t/", "/d/", "/k/", "/g/"]}, {"name": "摩擦音", "badge": "Consonant", "color": "#8b5cf6", "sym": ["/f/", "/v/", "/θ/", "/ð/", "/s/", "/z/", "/ʃ/", "/ʒ/", "/h/", "/r/"]}, {"name": "破擦音", "badge": "Consonant", "color": "#ec4899", "sym": ["/tʃ/", "/dʒ/", "/tr/", "/dr/", "/ts/", "/dz/"]}, {"name": "鼻音/舌侧/半元音", "badge": "Consonant", "color": "#22c55e", "sym": ["/m/", "/n/", "/ŋ/", "/l/", "/w/", "/j/"]}];
 var PM={};
 P.forEach(function(p){ PM[p.s]=p; });
-var PS={"/ɑː/":"v:700,1100,2500","/ɔː/":"v:500,700,2500","/ɜː/":"v:500,1400,1700","/iː/":"v:280,2250,2900","/uː/":"v:310,870,2250","/ʌ/":"v:600,1200,2400","/ɒ/":"v:600,900,2500","/ə/":"v:500,1500,2500","/ɪ/":"v:400,2000,2600","/ʊ/":"v:450,1000,2200","/e/":"v:550,1900,2500","/æ/":"v:700,1750,2500","/eɪ/":"d:550,1900,2500>400,2000,2600","/aɪ/":"d:800,1200,2500>400,2000,2600","/ɔɪ/":"d:500,700,2500>400,2000,2600","/əʊ/":"d:500,1500,2500>450,1000,2200","/aʊ/":"d:800,1200,2500>450,1000,2200","/ɪə/":"d:400,2000,2600>500,1500,2500","/eə/":"d:550,1900,2500>500,1500,2500","/ʊə/":"d:450,1000,2200>500,1500,2500","/p/":"c:pah","/b/":"c:bah","/t/":"c:tah","/d/":"c:dah","/k/":"c:kah","/g/":"c:gah","/f/":"c:fff","/v/":"c:vvv","/θ/":"c:thh","/ð/":"c:theh","/s/":"c:sss","/z/":"c:zzz","/ʃ/":"c:shh","/ʒ/":"c:zhh","/h/":"c:hah","/r/":"c:rah","/tʃ/":"c:chah","/dʒ/":"c:jah","/tr/":"c:trah","/dr/":"c:drah","/ts/":"c:tsah","/dz/":"c:dzah","/m/":"c:mmm","/n/":"c:nnn","/ŋ/":"c:ngng","/l/":"c:lah","/w/":"c:wah","/j/":"c:yah"};
+var PS={"/ɑː/":"aaaah","/ɔː/":"awwww","/ɜː/":"urrrr","/iː/":"eeeee","/uː/":"ooooo","/ʌ/":"uh","/ɒ/":"aw","/ə/":"uh","/ɪ/":"ih","/ʊ/":"oo","/e/":"eh","/æ/":"aaa","/eɪ/":"ay ee","/aɪ/":"ah ee","/ɔɪ/":"aw ee","/əʊ/":"uh oo","/aʊ/":"ah oo","/ɪə/":"ih uh","/eə/":"eh uh","/ʊə/":"oo uh","/p/":"pah","/b/":"bah","/t/":"tah","/d/":"dah","/k/":"kah","/g/":"gah","/f/":"ff","/v/":"vv","/θ/":"th","/ð/":"th","/s/":"ss","/z/":"zz","/ʃ/":"sh","/ʒ/":"zh","/h/":"hah","/r/":"rah","/tʃ/":"ch","/dʒ/":"j","/tr/":"trah","/dr/":"drah","/ts/":"ts","/dz/":"dz","/m/":"mmm","/n/":"nnn","/ŋ/":"ng","/l/":"lll","/w/":"wah","/j/":"yah"};
 
-function tts(w){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; window.speechSynthesis.speak(u); }
+function tts(w, slow){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US'; u.rate=slow?0.35:0.85; window.speechSynthesis.speak(u); }
 
-// Formant synthesis - physically accurate vowel sounds
-function speakFormant(soundCode){
-  var audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-  var parts=soundCode.split('>');
-  var isDiph=parts.length>1;
-  var startF=parts[0].split(',').map(Number);
-  var endF=isDiph?parts[1].split(',').map(Number):startF;
-  var dur=isDiph?1.2:0.8;
-  var sampleRate=audioCtx.sampleRate;
-  var length=sampleRate*dur;
-  var buffer=audioCtx.createBuffer(1,length,sampleRate);
-  var data=buffer.getChannelData(0);
-
-  // Generate sawtooth-like source with harmonics
-  var freq=isDiph?120:100;
-  for(var i=0;i<length;i++){
-    var t=i/sampleRate;
-    if(isDiph){
-      // Sweep formants for diphthong
-      var ratio=t/dur;
-      var f1=startF[0]+(endF[0]-startF[0])*ratio;
-      var f2=startF[1]+(endF[1]-startF[1])*ratio;
-      var f3=startF[2]+(endF[2]-startF[2])*ratio;
-    } else {
-      var f1=startF[0]; var f2=startF[1]; var f3=startF[2];
-    }
-    // Source: pulse train with formant filtering via simple bandpass approximation
-    var phase=(i*freq/sampleRate)%1;
-    var source=0;
-    for(var h=1;h<=15;h++){
-      var harmonicFreq=freq*h;
-      var amp=1/h;
-      // Formant filter: amplify harmonics near formant frequencies
-      var f1Amp=1/(1+Math.pow((harmonicFreq-f1)/(f1*0.15),2));
-      var f2Amp=1/(1+Math.pow((harmonicFreq-f2)/(f2*0.15),2));
-      var f3Amp=1/(1+Math.pow((harmonicFreq-f3)/(f3*0.15),2));
-      var formantGain=f1Amp*1.0+f2Amp*0.6+f3Amp*0.3;
-      source+=Math.sin(2*Math.PI*phase*h)*amp*formantGain;
-    }
-    // Envelope
-    var env=1;
-    var attack=0.02, decay=0.1;
-    if(t<attack)env=t/attack;
-    else if(t>dur-decay)env=(dur-t)/decay;
-    data[i]=source*env*0.3;
-  }
-  var source=audioCtx.createBufferSource();
-  source.buffer=buffer;
-  source.connect(audioCtx.destination);
-  source.start();
-  setTimeout(function(){audioCtx.close();},dur*1000+500);
-}
-
-function speakSound(soundCode){
-  var type=soundCode.charAt(0);
-  soundCode=soundCode.substring(2);
-  if(type==='v'||type==='d'){
-    // Vowel or diphthong - use formant synthesis
-    speakFormant(soundCode);
-  } else {
-    // Consonant - use TTS
-    tts(soundCode);
-  }
+function speakPhonetic(text){
+  // Use slow TTS for phonetic playback - 0.35x speed makes vowel sounds very clear
+  tts(text, true);
 }
 
 function ttsM(btn,ws){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); btn.classList.add('pla'); ws.forEach(function(w,i){ var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; if(i===ws.length-1)u.onend=function(){btn.classList.remove('pla');}; window.speechSynthesis.speak(u); }); }
@@ -391,7 +331,7 @@ function renderCards(){
  document.querySelectorAll('.tts-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
    var sound=this.getAttribute('data-sound');
-   speakSound(sound);
+   speakPhonetic(sound);
   });
  });
  document.querySelectorAll('.word-anchor').forEach(function(sp){
