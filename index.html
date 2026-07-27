@@ -163,36 +163,14 @@ var PLAN=[{"d": 1, "title": "长元音", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "
 var CATS=[{"name": "长元音", "badge": "Vowel", "color": "#ef4444", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "/iː/", "/uː/"]}, {"name": "短元音", "badge": "Vowel", "color": "#f97316", "sym": ["/ʌ/", "/ɒ/", "/ə/", "/ɪ/", "/ʊ/", "/e/", "/æ/"]}, {"name": "双元音", "badge": "Vowel", "color": "#eab308", "sym": ["/eɪ/", "/aɪ/", "/ɔɪ/", "/əʊ/", "/aʊ/", "/ɪə/", "/eə/", "/ʊə/"]}, {"name": "爆破音", "badge": "Consonant", "color": "#3b82f6", "sym": ["/p/", "/b/", "/t/", "/d/", "/k/", "/g/"]}, {"name": "摩擦音", "badge": "Consonant", "color": "#8b5cf6", "sym": ["/f/", "/v/", "/θ/", "/ð/", "/s/", "/z/", "/ʃ/", "/ʒ/", "/h/", "/r/"]}, {"name": "破擦音", "badge": "Consonant", "color": "#ec4899", "sym": ["/tʃ/", "/dʒ/", "/tr/", "/dr/", "/ts/", "/dz/"]}, {"name": "鼻音/舌侧/半元音", "badge": "Consonant", "color": "#22c55e", "sym": ["/m/", "/n/", "/ŋ/", "/l/", "/w/", "/j/"]}];
 var PM={};
 P.forEach(function(p){ PM[p.s]=p; });
-var PS={"/ɑː/":"aaaah","/ɔː/":"awwww","/ɜː/":"urrrr","/iː/":"eeeee","/uː/":"ooooo","/ʌ/":"uh","/ɒ/":"aw","/ə/":"uh","/ɪ/":"ih","/ʊ/":"oo","/e/":"eh","/æ/":"aaa","/eɪ/":"ay ee","/aɪ/":"ah ee","/ɔɪ/":"aw ee","/əʊ/":"uh oo","/aʊ/":"ah oo","/ɪə/":"ih uh","/eə/":"eh uh","/ʊə/":"oo uh","/p/":"pah","/b/":"bah","/t/":"tah","/d/":"dah","/k/":"kah","/g/":"gah","/f/":"ff","/v/":"vv","/θ/":"th","/ð/":"th","/s/":"ss","/z/":"zz","/ʃ/":"sh","/ʒ/":"zh","/h/":"hah","/r/":"rah","/tʃ/":"ch","/dʒ/":"j","/tr/":"trah","/dr/":"drah","/ts/":"ts","/dz/":"dz","/m/":"mmm","/n/":"nnn","/ŋ/":"ng","/l/":"lll","/w/":"wah","/j/":"yah"};
+var PS={"/ɑː/":"car class farm","/ɔː/":"door horse ball","/ɜː/":"bird girl nurse","/iː/":"bee tree read","/uː/":"zoo noodle school","/ʌ/":"bus duck run","/ɒ/":"dog hot orange","/ə/":"teacher banana computer","/ɪ/":"big pig fish","/ʊ/":"book look cook","/e/":"pen bed red","/æ/":"cat apple black","/eɪ/":"cake day say","/aɪ/":"bike five eye","/ɔɪ/":"boy","/əʊ/":"nose boat window","/aʊ/":"cow house flower","/ɪə/":"ear","/eə/":"bear pear chair","/ʊə/":"pure cure","/p/":"pen pig apple","/b/":"book bed boy","/t/":"ten cat student","/d/":"dog bed hand","/k/":"car black desk","/g/":"girl dog egg","/f/":"fish foot five","/v/":"five very","/θ/":"three thank math","/ð/":"this that mother","/s/":"six bus face","/z/":"zoo is nose","/ʃ/":"sheep fish short","/ʒ/":"vision measure","/h/":"he hand happy","/r/":"red run rice","/tʃ/":"chicken teacher chair","/dʒ/":"orange jump","/tr/":"tree train truck","/dr/":"drink driver draw","/ts/":"students cats","/dz/":"beds friends","/m/":"milk mother family","/n/":"nose pen nine","/ŋ/":"sing long morning","/l/":"leg school apple","/w/":"window what warm","/j/":"yes yellow you"};
 
 function tts(w, slow){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US'; u.rate=slow?0.35:0.85; window.speechSynthesis.speak(u); }
 
 function speakPhonetic(text){
-  // Use direct Wikipedia audio for accurate pronunciation
-  // Map each symbol to its Wikipedia Commons audio URL
-  var audioMap={
-    "/ɑː/":"https://upload.wikimedia.org/wikipedia/commons/0/0e/PR-open_front_unrounded_vowel.ogg",
-    "/iː/":"https://upload.wikimedia.org/wikipedia/commons/9/95/Close_front_unrounded_vowel.ogg",
-    "/uː/":"https://upload.wikimedia.org/wikipedia/commons/5/5d/Close_back_rounded_vowel.ogg",
-    "/ɔː/":"https://upload.wikimedia.org/wikipedia/commons/0/02/PR-open-mid_back_rounded_vowel.ogg",
-    "/e/":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Close-mid_front_unrounded_vowel.ogg",
-    "/æ/":"https://upload.wikimedia.org/wikipedia/commons/c/c9/Near-open_front_unrounded_vowel.ogg",
-    "/ɪ/":"https://upload.wikimedia.org/wikipedia/commons/4/4c/Near-close_near-front_unrounded_vowel.ogg",
-    "/ʊ/":"https://upload.wikimedia.org/wikipedia/commons/d/d5/Near-close_near-back_rounded_vowel.ogg",
-    "/ʌ/":"https://upload.wikimedia.org/wikipedia/commons/9/92/Open-mid_back_unrounded_vowel.ogg",
-    "/ɒ/":"https://upload.wikimedia.org/wikipedia/commons/0/02/PR-open-mid_back_rounded_vowel.ogg",
-    "/ə/":"https://upload.wikimedia.org/wikipedia/commons/d/d9/Mid-central_vowel.ogg",
-    "/ɜː/":"https://upload.wikimedia.org/wikipedia/commons/0/09/Open-mid_central_unrounded_vowel.ogg"
-  };
-  var url=audioMap[text];
-  if(url){
-    window.speechSynthesis.cancel();
-    var a=new Audio(url);
-    a.play();
-  } else {
-    // Fallback to slow TTS
-    tts(text, true);
-  }
+  // Play the anchor word slowly - this is how phonetics is taught:
+  // hearing the sound in a real word context
+  tts(text, true);
 }
 
 function ttsM(btn,ws){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); btn.classList.add('pla'); ws.forEach(function(w,i){ var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; if(i===ws.length-1)u.onend=function(){btn.classList.remove('pla');}; window.speechSynthesis.speak(u); }); }
