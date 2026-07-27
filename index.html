@@ -163,6 +163,7 @@ var PLAN=[{"d": 1, "title": "长元音", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "
 var CATS=[{"name": "长元音", "badge": "Vowel", "color": "#ef4444", "sym": ["/ɑː/", "/ɔː/", "/ɜː/", "/iː/", "/uː/"]}, {"name": "短元音", "badge": "Vowel", "color": "#f97316", "sym": ["/ʌ/", "/ɒ/", "/ə/", "/ɪ/", "/ʊ/", "/e/", "/æ/"]}, {"name": "双元音", "badge": "Vowel", "color": "#eab308", "sym": ["/eɪ/", "/aɪ/", "/ɔɪ/", "/əʊ/", "/aʊ/", "/ɪə/", "/eə/", "/ʊə/"]}, {"name": "爆破音", "badge": "Consonant", "color": "#3b82f6", "sym": ["/p/", "/b/", "/t/", "/d/", "/k/", "/g/"]}, {"name": "摩擦音", "badge": "Consonant", "color": "#8b5cf6", "sym": ["/f/", "/v/", "/θ/", "/ð/", "/s/", "/z/", "/ʃ/", "/ʒ/", "/h/", "/r/"]}, {"name": "破擦音", "badge": "Consonant", "color": "#ec4899", "sym": ["/tʃ/", "/dʒ/", "/tr/", "/dr/", "/ts/", "/dz/"]}, {"name": "鼻音/舌侧/半元音", "badge": "Consonant", "color": "#22c55e", "sym": ["/m/", "/n/", "/ŋ/", "/l/", "/w/", "/j/"]}];
 var PM={};
 P.forEach(function(p){ PM[p.s]=p; });
+var PS={"/ɑː/":"ahhh","/ɔː/":"awww","/ɜː/":"errr","/iː/":"eeee","/uː/":"oooo","/ʌ/":"uh","/ɒ/":"aw","/ə/":"uh","/ɪ/":"ih","/ʊ/":"oo","/e/":"eh","/æ/":"a","/eɪ/":"ay","/aɪ/":"eye","/ɔɪ/":"oy","/əʊ/":"oh","/aʊ/":"ow","/ɪə/":"ee uh","/eə/":"eh uh","/ʊə/":"oo uh","/p/":"puh","/b/":"buh","/t/":"tuh","/d/":"duh","/k/":"kuh","/g/":"guh","/f/":"fff","/v/":"vvv","/θ/":"thh","/ð/":"thh","/s/":"sss","/z/":"zzz","/ʃ/":"shh","/ʒ/":"zhh","/h/":"huh","/r/":"ruh","/tʃ/":"chh","/dʒ/":"juh","/tr/":"t r","/dr/":"d r","/ts/":"tss","/dz/":"dzz","/m/":"mmm","/n/":"nnn","/ŋ/":"nng","/l/":"luh","/w/":"wuh","/j/":"yuh"};
 
 function tts(w){ if(!window.speechSynthesis)return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(w); u.lang='en-US';u.rate=0.85; window.speechSynthesis.speak(u); }
 
@@ -303,7 +304,8 @@ function renderCards(){
   var lvLabel={none:'待学习',learning:'学习中',mastered:'已掌握'}[lv];
   h+='<div class="card">';
   h+='<div class="ch"><span class="ps">'+s+'</span>';
-  h+='<button class="pbtn tts-btn" data-words="'+ws.join(',')+'">speaker</button>';
+  var sound=PS[s]||ws[0]||'hello';
+  h+='<button class="pbtn tts-btn" data-sound="'+sound+'">speaker</button>';
   h+='<span style="font-size:11px;color:#64748b;margin-left:auto;">'+p.sub+'</span></div>';
   h+='<div class="ctip">'+p.t+'</div>';
   h+='<div class="ccb">常见字母组合：<strong>'+p.c+'</strong></div>';
@@ -323,8 +325,8 @@ function renderCards(){
  // Attach event listeners after rendering
  document.querySelectorAll('.tts-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
-   var wds=this.getAttribute('data-words').split(',');
-   ttsM(this, wds);
+   var sound=this.getAttribute('data-sound');
+   tts(sound);
   });
  });
  document.querySelectorAll('.word-anchor').forEach(function(sp){
