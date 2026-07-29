@@ -352,6 +352,11 @@ function renderCards(){
    startRec(id, wd);
   });
  });
+ document.querySelectorAll('[data-action=play-rec]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+   playRec(this.getAttribute('data-id'));
+  });
+ });
 }
 
 function refreshLearn(){
