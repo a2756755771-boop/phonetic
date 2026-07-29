@@ -189,10 +189,14 @@ function startRec(id,word){
  u.onend=function(){
   se.innerHTML='<span style="color:#fca5a5">请大声跟读！</span>';
   navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
-   var cks=[]; var rc=new MediaRecorder(st);
+   var mimeType='audio/webm';
+   if(!MediaRecorder.isTypeSupported(mimeType)){ mimeType='audio/mp4'; }
+   if(!MediaRecorder.isTypeSupported(mimeType)){ mimeType='audio/aac'; }
+   if(!MediaRecorder.isTypeSupported(mimeType)){ mimeType=''; }
+   var rc=new MediaRecorder(st, mimeType?{mimeType:mimeType}:{});
    rc.ondataavailable=function(e){cks.push(e.data);};
    rc.onstop=function(){
-    var bl=new Blob(cks,{type:'audio/webm'}); REC[id]=bl;
+    var bl=new Blob(cks,{type:mimeType||'audio/mp4'}); REC[id]=bl;
     pb.disabled=false;pb.classList.add('prec');
     if(rb){rb.classList.remove('rec');rb.textContent='再试一次';}
     if(te)te.style.display='none';
