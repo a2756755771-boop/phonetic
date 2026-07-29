@@ -189,6 +189,7 @@ function startRec(id,word){
  u.onend=function(){
   se.innerHTML='<span style="color:#fca5a5">请大声跟读！</span>';
   navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+   var cks=[];
    var mimeType='audio/webm';
    if(!MediaRecorder.isTypeSupported(mimeType)){ mimeType='audio/mp4'; }
    if(!MediaRecorder.isTypeSupported(mimeType)){ mimeType='audio/aac'; }
